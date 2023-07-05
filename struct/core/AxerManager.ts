@@ -105,10 +105,12 @@ export class AxerManager {
 			setTimeout(() => this.executeAxer(), 5000);
 		});
 
-		if (this.process.stderr) {
+		if (this.process.stdout && this.process.stderr) {
 			this.process.stderr.on("data", (message: string) => {
 				new AxerLog(this.bot, message).unhandledExeption().send();
 			});
+
+			this.process.stdout.on("data", console.log);
 		}
 
 		this.uptime = new Date();
