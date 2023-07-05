@@ -1,0 +1,8 @@
+{
+	"TOKEN": "bot token",
+	"OWNERS": ["556639598172962818", "341321481390784512"],
+	"GUILD": "guild to display logs",
+	"PRIVATE_CHANNEL": "to display full logs",
+	"PUBLIC_CHANNEL": "to display logs without exeption",
+	"AXER_PATH": ""
+}
