@@ -9,6 +9,7 @@ export class AxerLog {
 	public message: string | null = null;
 	private embed!: EmbedBuilder;
 	private isError = false;
+	private isCrash = false;
 
 	constructor(bot: DiscordBot, message?: string) {
 		this.bot = bot;
@@ -40,7 +41,7 @@ export class AxerLog {
 				});
 			}
 
-			if (publicChannel?.isTextBased()) {
+			if (!this.isError && publicChannel?.isTextBased()) {
 				publicChannel.send({
 					embeds: [this.embed],
 				});
@@ -66,6 +67,7 @@ export class AxerLog {
 			.setTimestamp();
 
 		this.isError = true;
+		this.isCrash = true;
 
 		if (this.message) {
 			const logContent = this.buildLog(
