@@ -41,11 +41,6 @@ export class AxerLog {
 			}
 
 			if (publicChannel?.isTextBased()) {
-				if (this.isError)
-					this.embed.setDescription(
-						"Something went wrong with axer!"
-					);
-
 				publicChannel.send({
 					embeds: [this.embed],
 				});
