@@ -62,7 +62,7 @@ export class AxerLog {
 
 	unhandledExeption() {
 		this.embed = new EmbedBuilder()
-			.setTitle("🔴 Unhandled Exeption")
+			.setTitle("🔴 Unhandled Exception")
 			.setColor(colors.red as ColorResolvable)
 			.setTimestamp();
 
