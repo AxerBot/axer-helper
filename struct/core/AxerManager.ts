@@ -47,6 +47,7 @@ export class AxerManager {
 
 					tsc.on("exit", (code) => {
 						if (code == 0) {
+							this.stopAxer();
 							this.executeAxer();
 							resolve(true);
 						} else {
@@ -64,6 +65,7 @@ export class AxerManager {
 		this.logger.printInfo("Shutting down axer...");
 
 		this.shouldRestart = false;
+		this.isRunning = false;
 		this.process.kill(0);
 	}
 
@@ -117,6 +119,7 @@ export class AxerManager {
 
 		this.uptime = new Date();
 		this.isRunning = true;
+		this.shouldRestart = true;
 
 		return this;
 	}
