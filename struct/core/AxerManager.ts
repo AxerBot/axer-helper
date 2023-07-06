@@ -98,18 +98,20 @@ export class AxerManager {
 		this.executeAxer.bind(this);
 
 		this.process.on("spawn", () => new AxerLog(this.bot).online().send());
-		this.process.on("disconnect", () => {
+		this.process.on("exit", (code) => {
 			if (!this.shouldRestart) return;
 
-			new AxerLog(this.bot).restarting().send();
-			setTimeout(() => this.executeAxer(), 5000);
+			if (code != 0) {
+				new AxerLog(this.bot).restarting().send();
+				setTimeout(() => this.executeAxer(), 5000);
+			}
 		});
 
 		if (this.process.stdout && this.process.stderr) {
 			this.process.stderr.on("data", (message: string) => {
+				console.log(message);
 				new AxerLog(this.bot, message).unhandledExeption().send();
 			});
-
 			this.process.stdout.on("data", console.log);
 		}
 
