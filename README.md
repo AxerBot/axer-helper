@@ -1,26 +1,17 @@
-# osu! dj
+# AxerHelper
 
-### A simple osu! beatmap audio player for discord
+### Tool to manage axer-bot
 
 ## Setup
 
-### Requirements
-
--   [Node.js](https://nodejs.org)
--   Windows, MAC or Linux based system
-
-### Initializing osu! dj
+### Initializing
 
 1. Install Node.js
-2. Rename `.env.example` to `.env`
-3. Fill `.env` with your credentials
+2. Rename `config.example.json` to `.env`
+3. Fill `config.example` with your credentials
 4. run `yarn` or `npm i` to install some packages
 5. run `yarn dev` to start the bot in dev mode!
 
 ### Building
 
--   Run `tsc` or `yarn build`
-
-### Creating commands
-
-See [Command Creation Guide](/CommandCreation.md)
+-   Run `tsc`
